@@ -2,6 +2,8 @@
 
 A modern, feature-rich task management application built with Next.js, featuring a Kanban board interface with drag-and-drop functionality, advanced filtering, and a beautiful UI.
 
+https://task-management-chi-liard.vercel.app/
+
 <div align="center">
   <img src="./public/screenshot.png" alt="Task Management Application Screenshot" width="100%"/>
 </div>

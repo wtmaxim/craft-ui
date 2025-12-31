@@ -199,9 +199,16 @@ export function SidebarMenuTooltip({
 
     if (!collapsed) return <>{children}</>
 
+    if (!children) return null
+
+    // Ensure children is a valid React element for the render prop
+    const childElement = React.isValidElement(children) 
+        ? children 
+        : <span>{children}</span>
+
     return (
         <Tooltip {...props}>
-            <TooltipTrigger render={children} />
+            <TooltipTrigger render={childElement as React.ReactElement} />
             <TooltipContent side="right" align="center" sideOffset={12}>
                 {content}
             </TooltipContent>

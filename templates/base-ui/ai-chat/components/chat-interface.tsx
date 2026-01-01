@@ -6,7 +6,6 @@ import {
   X,
   Sparkles,
   ArrowUp,
-  ChevronDown,
   User,
   Bot,
 } from "lucide-react"
@@ -257,7 +256,6 @@ export function ChatInterface() {
                     <Select value={model} onValueChange={(value) => value && setModel(value)}>
                       <SelectTrigger size="sm" className="h-auto rounded-full border-0 bg-transparent px-2 py-1 shadow-none hover:bg-muted/80">
                         <SelectValue />
-                        <ChevronDown className="ml-1 size-3.5" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="grok-4.1-fast">Grok 4.1 Fast</SelectItem>
@@ -328,7 +326,6 @@ export function ChatInterface() {
                     <Select value={model} onValueChange={(value) => value && setModel(value)}>
                       <SelectTrigger size="sm" className="h-auto rounded-full border-0 bg-transparent px-2 py-1 shadow-none hover:bg-muted/80">
                         <SelectValue />
-                        <ChevronDown className="ml-1 size-3.5" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="grok-4.1-fast">Grok 4.1 Fast</SelectItem>

@@ -2,8 +2,6 @@
 
 import * as React from "react"
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip"
-import { useRender } from "@base-ui/react/use-render"
-import { mergeProps } from "@base-ui/react/merge-props"
 
 import { cn } from "@/lib/utils"
 
@@ -29,56 +27,11 @@ function Tooltip({ ...props }: TooltipPrimitive.Root.Props) {
 }
 
 function TooltipTrigger({ 
-  asChild,
   children,
   ...props 
-}: TooltipPrimitive.Trigger.Props & { asChild?: boolean }) {
-  // Filtrer asChild des props avant de les passer au composant primitif
-  const { asChild: _, ...restProps } = props as typeof props & { asChild?: boolean }
-  
-  // Si asChild est vrai, utiliser TooltipPrimitive.Trigger comme render dans useRender
-  // pour fusionner les props avec l'enfant sans créer de wrapper button
-  if (asChild && React.isValidElement(children)) {
-    const comp = useRender({
-      defaultTagName: "button",
-      props: mergeProps<"button">(
-        {
-          "data-slot": "tooltip-trigger",
-        },
-        restProps
-      ),
-      render: children as React.ReactElement,
-      state: {
-        slot: "tooltip-trigger",
-      },
-    })
-
-    // Utiliser TooltipPrimitive.Trigger comme render dans useRender pour éviter le double button
-    const triggerComp = useRender({
-      defaultTagName: "button",
-      props: {
-        "data-slot": "tooltip-trigger-wrapper",
-      },
-      render: comp,
-      state: {
-        slot: "tooltip-trigger-wrapper",
-      },
-    })
-
-    // Envelopper dans TooltipPrimitive.Trigger mais en utilisant le composant déjà rendu
-    // pour éviter de créer un button supplémentaire
-    return (
-      <TooltipPrimitive.Trigger 
-        data-slot="tooltip-trigger-wrapper"
-        {...restProps}
-      >
-        {triggerComp}
-      </TooltipPrimitive.Trigger>
-    )
-  }
-  
+}: TooltipPrimitive.Trigger.Props) {
   return (
-    <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...restProps}>
+    <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props}>
       {children}
     </TooltipPrimitive.Trigger>
   )

@@ -78,7 +78,7 @@ function DialogClose({
       {...props}
     >
       <HugeiconsIcon icon={Cancel01Icon} className="size-4" />
-      <span className="sr-only">Fermer</span>
+      <span className="sr-only">Close</span>
     </AlertDialogPrimitive.Close>
   )
 }
@@ -92,14 +92,14 @@ export function UploadDocumentDialog() {
         render={
           <Button>
             <HugeiconsIcon icon={PlusSignIcon} />
-            Ajouter un document
+            Add document
           </Button>
         }
       />
       <DialogContent>
         <DialogClose />
         <div className="p-6 space-y-6">
-          {/* Onglets */}
+          {/* Tabs */}
           <div className="flex gap-1 border-b">
             <button
               type="button"
@@ -127,23 +127,23 @@ export function UploadDocumentDialog() {
             </button>
           </div>
 
-          {/* Contenu */}
+          {/* Content */}
           <div className="space-y-4">
             {activeTab === "document" ? (
               <>
-                {/* Titre */}
+                {/* Title */}
                 <div>
-                  <h2 className="text-xl font-semibold mb-2">Partager un document</h2>
+                  <h2 className="text-xl font-semibold mb-2">Share a document</h2>
                   <p className="text-sm text-muted-foreground">
-                    Après avoir téléchargé le document, créez un lien partageable. Téléchargez des fichiers plus volumineux et plus de{" "}
+                    After uploading the document, create a shareable link. Upload larger files and more{" "}
                     <a href="#" className="underline hover:text-foreground">
-                      types de fichiers
+                      file types
                     </a>{" "}
-                    avec un plan supérieur.
+                    with a higher plan.
                   </p>
                 </div>
 
-                {/* Zone de téléchargement */}
+                {/* Upload area */}
                 <div className="border-2 border-dashed rounded-lg p-8 text-center space-y-4">
                   <div className="flex justify-center">
                     <HugeiconsIcon
@@ -153,35 +153,35 @@ export function UploadDocumentDialog() {
                   </div>
                   <div className="space-y-1">
                     <p className="text-sm font-medium">
-                      Choisissez un fichier à télécharger ou glissez-déposez
+                      Choose a file to upload or drag and drop
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      Seulement *.pdf, *.xls, *.xlsx, *.csv, *.tsv, *.ods, *.png, *.jpeg, *.jpg
+                      Only *.pdf, *.xls, *.xlsx, *.csv, *.tsv, *.ods, *.png, *.jpeg, *.jpg
                     </p>
                   </div>
                 </div>
 
-                {/* Bouton de téléchargement */}
+                {/* Upload button */}
                 <Button className="w-full" size="lg">
-                  Télécharger le document
+                  Upload document
                 </Button>
 
                 {/* Footer */}
                 <p className="text-xs text-center text-muted-foreground">
-                  Vous voulez télécharger plusieurs fichiers ou partager un lien en tant que document ?
+                  Want to upload multiple files or share a link as a document?
                 </p>
               </>
             ) : (
               <>
-                {/* Titre */}
+                {/* Title */}
                 <div>
-                  <h2 className="text-xl font-semibold mb-2">Partager une page Notion</h2>
+                  <h2 className="text-xl font-semibold mb-2">Share a Notion page</h2>
                   <p className="text-sm text-muted-foreground">
-                    Après avoir soumis le lien Notion, un lien partageable sera généré et copié dans votre presse-papiers. Comme avec un document PDF.
+                    After submitting the Notion link, a shareable link will be generated and copied to your clipboard. Just like with a PDF document.
                   </p>
                 </div>
 
-                {/* Champ de saisie */}
+                {/* Input field */}
                 <div className="space-y-2">
                   <Label htmlFor="notion-link">Notion Page Link</Label>
                   <Input
@@ -191,13 +191,13 @@ export function UploadDocumentDialog() {
                     className="w-full"
                   />
                   <p className="text-xs text-muted-foreground">
-                    Votre page Notion doit être partagée publiquement.
+                    Your Notion page must be publicly shared.
                   </p>
                 </div>
 
-                {/* Bouton d'enregistrement */}
+                {/* Save button */}
                 <Button className="w-full" size="lg">
-                  Enregistrer le lien Notion
+                  Save Notion link
                 </Button>
               </>
             )}

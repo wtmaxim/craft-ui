@@ -1,5 +1,5 @@
 import * as React from "react"
-import { AudioWaveform, ChartPie, Command, Database, FileIcon, Frame, GalleryVerticalEnd, SquareTerminal } from "lucide-react"
+import { AudioWaveform, ChartPie, Command, Database, FileIcon, Frame, GalleryVerticalEnd, Map } from "lucide-react"
 
 import {
   Sidebar,
@@ -11,6 +11,8 @@ import {
 import { NavUser } from "./nav-user"
 import { TeamSwitcher } from "./team-switcher"
 import { NavMain } from "./nav-main"
+import { NavUsage } from "./nav-usage"
+
 
 const data = {
   user: {
@@ -37,43 +39,36 @@ const data = {
   ],
   navMain: [
     {
-      title: "Applications",
-      url: "#",
-      icon: SquareTerminal,
+      title: "Dashboard",
+      icon: ChartPie,
+      url: "/",
       isActive: true,
-      items: [
-        {
-          title: "Dashboard",
-          icon: ChartPie,
-          url: "#",
-        },
-        {
-          title: "Documents",
-          icon: FileIcon,
-          url: "#",
-        },
-        {
-          title: "Datarooms",
-          icon: Database,
-          url: "#",
-        },
-      ],
+    },
+    {
+      title: "Documents",
+      icon: FileIcon,
+      url: "/documents",
+    },
+    {
+      title: "Datarooms",
+      icon: Database,
+      url: "/datarooms",
     },
   ],
   projects: [
     {
       name: "Design Engineering",
-      url: "#",
+      url: "/projects/design-engineering",
       icon: Frame,
     },
     {
       name: "Sales & Marketing",
-      url: "#",
+      url: "/projects/sales-marketing",
       icon: ChartPie,
     },
     {
       name: "Travel",
-      url: "#",
+      url: "/projects/travel",
       icon: Map,
     },
   ],
@@ -88,7 +83,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
+        <NavUsage />
       </SidebarContent>
+
       <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>

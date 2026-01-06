@@ -39,7 +39,7 @@ import {
   EyeIcon,
 } from "@hugeicons/core-free-icons"
 
-// Données mockées étendues pour les détails
+// Extended mock data for details
 const documentDetails: Record<string, {
   id: string
   name: string
@@ -71,7 +71,7 @@ const documentDetails: Record<string, {
 }> = {
   "1": {
     id: "1",
-    name: "CV Maxime DERAME_signed.pdf",
+    name: "resume_signed.pdf",
     type: "pdf",
     date: "Feb 19, 2025",
     links: 1,
@@ -99,7 +99,7 @@ const documentDetails: Record<string, {
   },
   "2": {
     id: "2",
-    name: "VOLONTAIRES POLE SOCIAL.xls",
+    name: "volunteers_data.xls",
     type: "excel",
     date: "Dec 19, 2024",
     links: 1,
@@ -125,7 +125,7 @@ const documentDetails: Record<string, {
     sharedLinks: [
       {
         id: "3ukwe",
-        url: "https://www.papermark.com/view/cm61when80001e48jpyt3ukwe",
+        url: "https://example.com/view/3ukwe",
         controls: 2,
         views: 3,
         lastViewed: "Sep 23, 2025",
@@ -134,19 +134,19 @@ const documentDetails: Record<string, {
     ],
     visitors: [
       {
-        email: "maaxx.derame@gmail.com",
+        email: "user1@example.com",
         viewDuration: 15,
         completion: 200,
         lastViewed: "Sep 23, 2025",
       },
       {
-        email: "maaxx.derame@gmail.com",
+        email: "user2@example.com",
         viewDuration: 13,
         completion: 800,
         lastViewed: "Mar 28, 2025",
       },
       {
-        email: "maaxx.derame@gmail.com",
+        email: "user3@example.com",
         viewDuration: 20,
         completion: 900,
         lastViewed: "Jan 18, 2025",
@@ -155,7 +155,7 @@ const documentDetails: Record<string, {
   },
   "3": {
     id: "3",
-    name: "Rapport_annuel_2024.docx",
+    name: "annual_report_2024.docx",
     type: "word",
     date: "Jan 15, 2025",
     links: 2,
@@ -181,7 +181,7 @@ const documentDetails: Record<string, {
     sharedLinks: [
       {
         id: "abc123",
-        url: "https://www.papermark.com/view/abc123",
+        url: "https://example.com/view/abc123",
         controls: 1,
         views: 8,
         lastViewed: "Feb 10, 2025",
@@ -189,7 +189,7 @@ const documentDetails: Record<string, {
       },
       {
         id: "def456",
-        url: "https://www.papermark.com/view/def456",
+        url: "https://example.com/view/def456",
         controls: 0,
         views: 4,
         lastViewed: "Jan 20, 2025",
@@ -213,7 +213,7 @@ const documentDetails: Record<string, {
   },
   "4": {
     id: "4",
-    name: "Logo_entreprise.png",
+    name: "company_logo.png",
     type: "image",
     date: "Mar 1, 2025",
     links: 0,
@@ -262,15 +262,15 @@ export default function DocumentDetailPage({
   const { id } = use(params)
   const document = documentDetails[id]
 
-  // Configuration du graphique
+  // Chart configuration
   const chartConfig: ChartConfig = {
     views: {
-      label: "Vues",
+      label: "Views",
       color: "hsl(var(--chart-1))",
     },
   }
 
-  // Transformer les données pour le graphique
+  // Transform data for chart
   const chartData = document
     ? document.viewStats.map((stat) => ({
         period: stat.period,
@@ -291,12 +291,12 @@ export default function DocumentDetailPage({
         <SidebarInset>
           <div className="flex flex-1 items-center justify-center">
             <div className="text-center">
-              <h1 className="text-2xl font-semibold mb-2">Document introuvable</h1>
+              <h1 className="text-2xl font-semibold mb-2">Document not found</h1>
               <p className="text-muted-foreground mb-4">
-                Le document que vous recherchez n&apos;existe pas.
+                The document you are looking for does not exist.
               </p>
               <Link href="/">
-                <Button>Retour aux documents</Button>
+                <Button>Back to documents</Button>
               </Link>
             </div>
           </div>
@@ -336,46 +336,46 @@ export default function DocumentDetailPage({
           </Breadcrumb>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          {/* Header avec titre et bouton */}
+          {/* Header with title and button */}
           <div className="flex items-start justify-between gap-4">
             <div className="flex flex-col gap-1">
               <h1 className="text-2xl font-semibold truncate">{document.name}</h1>
               <p className="text-sm text-muted-foreground">
-                {document.date} • {document.links} {document.links === 1 ? "Lien" : "Liens"} • {document.versions} {document.versions === 1 ? "Version" : "Versions"}
+                {document.date} • {document.links} {document.links === 1 ? "Link" : "Links"} • {document.versions} {document.versions === 1 ? "Version" : "Versions"}
               </p>
             </div>
             <Button>
               <HugeiconsIcon icon={PlusSignIcon} />
-              Créer un lien
+              Create link
             </Button>
           </div>
 
-          {/* Banner pour Excel */}
+          {/* Excel banner */}
           {document.type === "excel" && (
             <Card className="bg-primary/5 border-primary/20">
               <CardContent className="pt-4">
                 <div className="flex items-start gap-3">
-                  <div className="flex-1">
-                    <h3 className="font-medium mb-1">Mode Excel avancé</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Passez à Pro pour débloquer le mode Excel avancé avec des fonctionnalités supplémentaires.
-                    </p>
+                    <div className="flex-1">
+                      <h3 className="font-medium mb-1">Advanced Excel mode</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Upgrade to Pro to unlock advanced Excel mode with additional features.
+                      </p>
                   </div>
                   <Button variant="outline" size="sm">
-                    Mettre à niveau
+                    Upgrade to Pro
                   </Button>
                 </div>
               </CardContent>
             </Card>
           )}
 
-          {/* Section Statistiques de vues */}
+          {/* View Statistics section */}
           <Card>
             <CardHeader>
-              <CardTitle>Statistiques de vues</CardTitle>
+              <CardTitle>View Statistics</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              {/* Graphique avec recharts */}
+              {/* Chart with recharts */}
               <ChartContainer config={chartConfig} className="h-[200px] w-full">
                 <BarChart
                   accessibilityLayer
@@ -399,7 +399,7 @@ export default function DocumentDetailPage({
                   <ChartTooltip
                     content={
                       <ChartTooltipContent
-                        labelFormatter={(value: string) => `Période ${value}`}
+                        labelFormatter={(value: string) => `Period ${value}`}
                       />
                     }
                   />
@@ -411,17 +411,17 @@ export default function DocumentDetailPage({
                 </BarChart>
               </ChartContainer>
 
-              {/* Métriques */}
+              {/* Metrics */}
               <div className="grid grid-cols-3 gap-4 pt-4 border-t">
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">
-                    Nombre de vues
+                    Total views
                   </p>
                   <p className="text-2xl font-semibold">{document.metrics.totalViews}</p>
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">
-                    Taux de complétion moyen
+                    Average completion rate
                   </p>
                   <p className="text-2xl font-semibold">
                     {document.metrics.averageCompletion}%
@@ -429,7 +429,7 @@ export default function DocumentDetailPage({
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">
-                    Durée moyenne de visualisation
+                    Average view duration
                   </p>
                   <p className="text-2xl font-semibold">
                     {document.metrics.averageDuration}s
@@ -439,10 +439,10 @@ export default function DocumentDetailPage({
             </CardContent>
           </Card>
 
-          {/* Section Tous les liens */}
+          {/* All Links section */}
           <Card>
             <CardHeader>
-              <CardTitle>Tous les liens</CardTitle>
+              <CardTitle>All Links</CardTitle>
             </CardHeader>
             <CardContent>
               {document.sharedLinks.length > 0 ? (
@@ -450,12 +450,12 @@ export default function DocumentDetailPage({
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="border-b">
-                        <th className="text-left py-2 px-4 font-medium">ID du lien</th>
+                        <th className="text-left py-2 px-4 font-medium">Link ID</th>
                         <th className="text-left py-2 px-4 font-medium">URL</th>
-                        <th className="text-left py-2 px-4 font-medium">Contrôles</th>
-                        <th className="text-left py-2 px-4 font-medium">Vues</th>
-                        <th className="text-left py-2 px-4 font-medium">Dernière vue</th>
-                        <th className="text-left py-2 px-4 font-medium">Statut</th>
+                        <th className="text-left py-2 px-4 font-medium">Controls</th>
+                        <th className="text-left py-2 px-4 font-medium">Views</th>
+                        <th className="text-left py-2 px-4 font-medium">Last viewed</th>
+                        <th className="text-left py-2 px-4 font-medium">Status</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -486,7 +486,7 @@ export default function DocumentDetailPage({
                           </td>
                           <td className="py-3 px-4">
                             <Badge variant={link.active ? "default" : "outline"}>
-                              {link.active ? "Actif" : "Inactif"}
+                              {link.active ? "Active" : "Inactive"}
                             </Badge>
                           </td>
                         </tr>
@@ -497,16 +497,16 @@ export default function DocumentDetailPage({
               ) : (
                 <div className="text-center py-8 text-muted-foreground">
                   <HugeiconsIcon icon={LinkIcon} className="size-8 mx-auto mb-2 opacity-50" />
-                  <p>Aucun lien partagé</p>
+                  <p>No shared links</p>
                 </div>
               )}
             </CardContent>
           </Card>
 
-          {/* Section Tous les visiteurs */}
+          {/* All Visitors section */}
           <Card>
             <CardHeader>
-              <CardTitle>Tous les visiteurs</CardTitle>
+              <CardTitle>All Visitors</CardTitle>
             </CardHeader>
             <CardContent>
               {document.visitors.length > 0 ? (
@@ -517,12 +517,12 @@ export default function DocumentDetailPage({
                         <tr className="border-b">
                           <th className="text-left py-2 px-4 font-medium">Email</th>
                           <th className="text-left py-2 px-4 font-medium">
-                            Durée de visualisation
+                            View duration
                           </th>
                           <th className="text-left py-2 px-4 font-medium">
-                            Taux de complétion
+                            Completion rate
                           </th>
-                          <th className="text-left py-2 px-4 font-medium">Dernière vue</th>
+                          <th className="text-left py-2 px-4 font-medium">Last viewed</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -539,20 +539,20 @@ export default function DocumentDetailPage({
                       </tbody>
                     </table>
                   </div>
-                  {/* Pagination simulée */}
+                  {/* Simulated pagination */}
                   <div className="flex items-center justify-between mt-4 pt-4 border-t">
                     <div className="text-sm text-muted-foreground">
-                      Éléments par page 10
+                      10 items per page
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      Page 1 sur 1
+                      Page 1 of 1
                     </div>
                   </div>
                 </>
               ) : (
                 <div className="text-center py-8 text-muted-foreground">
                   <HugeiconsIcon icon={EyeIcon} className="size-8 mx-auto mb-2 opacity-50" />
-                  <p>Aucun visiteur</p>
+                  <p>No visitors</p>
                 </div>
               )}
             </CardContent>

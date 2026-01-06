@@ -25,7 +25,6 @@ import {
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Link01Icon, File01Icon, UserIcon, EyeIcon, Calendar03Icon, LinkCircleIcon } from "@hugeicons/core-free-icons"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
@@ -107,10 +106,6 @@ export default function DashboardPage() {
             <SidebarInset>
                 <header className="flex h-16 shrink-0 items-center gap-2 px-4">
                     <SidebarTrigger className="-ml-1" />
-                    <Separator
-                        orientation="vertical"
-                        className="mr-2 data-[orientation=vertical]:h-4"
-                    />
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem className="hidden md:block">
@@ -144,7 +139,7 @@ export default function DashboardPage() {
 
                                 <SelectTrigger className="w-[140px]">
                                     <HugeiconsIcon icon={Calendar03Icon} className="mr-2 size-4" />
-                                    <SelectValue placeholder="Select range" />
+                                    <SelectValue />
                                 </SelectTrigger>
                                 <SelectContent align="end">
                                     <SelectItem value="7d">Last 7 days</SelectItem>

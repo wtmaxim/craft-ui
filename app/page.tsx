@@ -1,9 +1,18 @@
 import { LandingSidebar } from "@/components/landing-sidebar"
 import { MobileHeader } from "@/components/mobile-header"
 import { TemplateCardFull } from "@/components/template-card-full"
-import { MessageSquareIcon, LayoutGridIcon } from "lucide-react"
+import { MessageSquareIcon, LayoutGridIcon, FileTextIcon } from "lucide-react"
 
 const templates = [
+  {
+    title: "Document Management",
+    description: "Modern document management application with upload, sharing, analytics dashboard, and visitor tracking",
+    features: ["Document Upload", "Shareable Links", "Analytics Dashboard", "Visitor Tracking"],
+    screenshot: "/templates/base-ui/doc/screenshot.png",
+    demoUrl: "https://document-management-psi.vercel.app/",
+    githubUrl: "https://github.com/wtmaxim/craft-ui/tree/main/templates/base-ui/doc",
+    icon: <FileTextIcon className="size-7 text-primary" />,
+  },
   {
     title: "AI Chat",
     description: "Modern AI chat interface with support for multiple models, question suggestions and real-time spell checking",
